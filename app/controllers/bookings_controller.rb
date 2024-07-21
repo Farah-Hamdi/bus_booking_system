@@ -6,10 +6,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # Find the trip by trip_id
     trip = Trip.find(params[:trip_id])
 
-    # Find the seat by seat number and bus
     seat = trip.bus.seats.find_by(seat_number: params[:seat_number])
 
     # Check if the seat exists and is part of the trip's bus
@@ -43,6 +41,7 @@ class BookingsController < ApplicationController
       render json: { error: 'Failed to delete booking' }, status: :unprocessable_entity
     end
   end
+  
 end
 
 
