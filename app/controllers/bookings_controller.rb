@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+  before_action :authenticate_user!
   def index
     render json: Booking.all
   end
@@ -21,8 +23,8 @@ class BookingsController < ApplicationController
     end
 
     # Create the booking
-    booking = Booking.new(user_id: params[:user_id], seat: seat, trip: trip)
-
+    booking = current_user.bookings.new(seat: seat, trip: trip)
+    
     if booking.save
       render json: { status: 'Booking successful' }, status: :created
     else
@@ -32,6 +34,15 @@ class BookingsController < ApplicationController
     render json: { errors: [e.message] }, status: :not_found
   end
   
+
+  def destroy
+    booking = Booking.find(params[:id])
+    if booking.destroy
+      render json: { message: 'Booking deleted successfully' }, status: :ok
+    else
+      render json: { error: 'Failed to delete booking' }, status: :unprocessable_entity
+    end
+  end
 end
 
 
