@@ -26,7 +26,9 @@ This is a bus-booking system built with Ruby on Rails. The application manages b
 - FakeRackSession has been created because sessions are disabled by default in api only projects
 
 
-* Database initialization
+## API Documentation
+Link to documentation: https://documenter.getpostman.com/view/29295323/2sA3kUHha7
+
 
 ## Installation
 
