@@ -11,8 +11,3 @@ services:
     environment:
       - RAILS_ENV=development
       - DEV_JWT_SECRET_KEY=${DEV_JWT_SECRET_KEY}
-    depends_on:
-      - db
-
-volumes:
-  pgdata:
