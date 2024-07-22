@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: ./bin/rails server -b 0.0.0.0
+    volumes:
+      - .:/rails
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=development
+      - DEV_JWT_SECRET_KEY=${DEV_JWT_SECRET_KEY}
+    depends_on:
+      - db
+
+volumes:
+  pgdata:

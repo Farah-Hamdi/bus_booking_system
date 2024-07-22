@@ -7,9 +7,6 @@ WORKDIR /rails
 ENV RAILS_ENV="development" \
     BUNDLE_PATH="/usr/local/bundle" 
 
-
-ENV DEV_JWT_SECRET_KEY="3cc02500e48565fc4f697217665a68d42ac07fff925cd6d9d2d7e5692249b34bb1f276e6b6c163c197f055d5eecd95cbad2e04802b7511b30c8f554bff803fea"
-
 # Install packages needed for development
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libvips pkg-config libsqlite3-dev curl libsqlite3-0 && \

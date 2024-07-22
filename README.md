@@ -32,6 +32,7 @@ Link to documentation: https://documenter.getpostman.com/view/29295323/2sA3kUHha
 ## Prerequisites
 
 - Docker 
+- Docker Compose
 - Git
 
 ## References
@@ -48,14 +49,22 @@ Link to documentation: https://documenter.getpostman.com/view/29295323/2sA3kUHha
 ```sh
    git clone https://github.com/Farah-Hamdi/bus_booking_system.git
    cd bus_booking_system
+```
 
-2- Build the docker image 
-   docker build -t bus-management-system .
-
-3- Run the Docker container 
-   docker run -it -p 3000:3000 bus-management-system
-
-4- The application will be accessible at http://localhost:3000.
+2- Generate a Devise JWT Secret Key
+```sh 
+   bundle exec rails secret
+```
+3- Create env file in the root of your project directory and add the generated key
+``` sh
+   DEV_JWT_SECRET_KEY=your_generated_secret_key
+```
+4- Build and run the docker container 
+``` sh
+docker-compose build
+docker-compose up
+```
+5- The application will be accessible at http://localhost:3000.
 
 
 
