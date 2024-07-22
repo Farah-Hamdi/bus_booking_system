@@ -61,8 +61,8 @@ Link to documentation: https://documenter.getpostman.com/view/29295323/2sA3kUHha
 ```
 4- Build and run the docker container 
 ``` sh
-docker-compose build
-docker-compose up
+   docker build -t bus-booking-system:latest .
+   docker run bus-booking-system
 ```
 5- The application will be accessible at http://localhost:3000.
 
