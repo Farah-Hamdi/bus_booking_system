@@ -19,14 +19,15 @@ RUN bundle install
 # Copy application code
 COPY . .
 
-# # Adjust binfiles to be executable on Linux
 RUN chmod +x bin/* && \
     sed -i "s/\r$//g" bin/* && \
-    sed -i 's/ruby\.exe$/ruby/' bin/*
+    sed -i 's/ruby\.exe$/ruby/' bin/* && \
+    sed -i 's|/usr/bin/env ruby.exe|/usr/bin/env ruby|' bin/*
 
 # Copy the entrypoint script and ensure it's executable
 COPY bin/docker-entrypoint /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
+
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
