@@ -29,6 +29,17 @@ This is a bus-booking system built with Ruby on Rails. The application manages b
 ## API Documentation
 Link to documentation: https://documenter.getpostman.com/view/29295323/2sA3kUHha7
 
+## Prerequisites
+
+- Docker 
+- Git
+
+## References
+
+- For Authentication: https://sdrmike.medium.com/rails-7-api-only-app-with-devise-and-jwt-for-authentication-1397211fb97c
+
+- Ruby on rails API Crash Course: https://youtube.com/playlist?list=PLbTv9eGiI03u1-JFkFpPGsR_hMre6WX3e&si=SsglNjSGtc8w2D9T
+
 
 ## Installation
 
@@ -38,7 +49,14 @@ Link to documentation: https://documenter.getpostman.com/view/29295323/2sA3kUHha
    git clone https://github.com/Farah-Hamdi/bus_booking_system.git
    cd bus_booking_system
 
-2- The application will be accessible at http://localhost:3000.
+2- Build the docker image 
+   docker build -t bus-management-system .
+
+3- Run the Docker container 
+   docker run -it -p 3000:3000 bus-management-system
+
+4- The application will be accessible at http://localhost:3000.
+
 
 
 
